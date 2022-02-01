@@ -1,12 +1,26 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+
 import { ReactComponent as ArrowRightIcon } from "../assets/svg/keyboardArrowRightIcon.svg";
 import visibilityIcon from "../assets/svg/visibilityIcon.svg";
 
-const SignOut = () => {
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
+import { db } from "../firebase.config";
+import { setDoc, doc, serverTimestamp } from "firebase/firestore";
+import { toast } from "react-toastify";
+
+const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [formData, setFormData] = useState({ email: "", password: "" });
-  const { email, password } = formData;
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+  const { name, email, password } = formData;
 
   const navigate = useNavigate();
 
@@ -17,6 +31,31 @@ const SignOut = () => {
     }));
   };
 
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const auth = getAuth();
+      const userCredential = createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const user = (await userCredential).user;
+      updateProfile(auth.currentUser, {
+        displayName: name,
+      });
+
+      const formDataCopy = { ...formData };
+      delete formDataCopy.password;
+      formDataCopy.timeStamp = serverTimestamp();
+
+      await setDoc(doc(db, "users", user.uid), formDataCopy);
+
+      navigate("/");
+    } catch (error) {
+      toast.error("Something went wrong with Registration");
+    }
+  };
   return (
     <>
       <div className="pageContainer">
@@ -24,7 +63,15 @@ const SignOut = () => {
           <div className="pageHeader">Welcome Back!</div>
         </header>
         <main>
-          <form>
+          <form onSubmit={onSubmit}>
+            <input
+              type="text"
+              className="nameInput"
+              placeholder="Name"
+              id="name"
+              value={name}
+              onChange={onChange}
+            />
             <input
               type="email"
               className="emailInput"
@@ -69,4 +116,4 @@ const SignOut = () => {
   );
 };
 
-export default SignOut;
+export default SignUp;
