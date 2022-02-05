@@ -72,7 +72,7 @@ const SignIn = () => {
                 onClick={() => setShowPassword(!showPassword)}
               />
             </div>
-            <Link to="forgot-password" className="forgotPasswordLink">
+            <Link to="/forgot-password" className="forgotPasswordLink">
               Forgot Password?
             </Link>
             <div className="signInBar">
