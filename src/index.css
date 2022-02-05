@@ -267,9 +267,9 @@ button {
 }
 
 .socialLogin {
-  margin-top: 4rem;
+  /* margin-top: 4rem; */
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   align-items: center;
 }
 
@@ -279,7 +279,7 @@ button {
   justify-content: center;
   align-items: center;
   padding: 0.75rem;
-  margin: 1.5rem;
+  margin: 0.5rem;
   width: 3rem;
   height: 3rem;
   background-color: #ffffff;
@@ -292,7 +292,7 @@ button {
 }
 
 .registerLink {
-  margin-top: 4rem;
+  margin-top: 1rem;
   color: #00cc66;
   font-weight: 600;
   text-align: center;
