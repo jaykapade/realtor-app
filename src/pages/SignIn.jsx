@@ -13,7 +13,7 @@ const SignIn = () => {
     email: "",
     password: "",
   });
-  const { name, email, password } = formData;
+  const { email, password } = formData;
 
   const navigate = useNavigate();
 
