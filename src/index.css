@@ -65,8 +65,8 @@ button {
   color: #ffffff;
   font-weight: 600;
   font-size: 1.25rem;
-  width: 80%;
-  margin: 0 auto;
+  /* width: 80%; */
+  /* margin: 0 auto; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -791,7 +791,12 @@ button {
 }
 
 .formInputFile {
-  width: 100%;
+}
+@media (max-width: 480px) {
+  .formInputFile {
+    width: 100%;
+    margin: auto;
+  }
 }
 .formInputFile::-webkit-file-upload-button {
   background-color: #00cc66;
@@ -804,7 +809,7 @@ button {
 }
 
 .createListingButton {
-  margin-top: 5rem;
+  margin-top: 2rem;
 }
 
 .offers {
