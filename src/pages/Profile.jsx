@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { getAuth, updateProfile } from "firebase/auth";
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase.config";
 import { toast } from "react-toastify";
+
+import arrowRight from "../assets/svg/keyboardArrowRightIcon.svg";
+import homeIcon from "../assets/svg/homeIcon.svg";
 
 const Profile = () => {
   const auth = getAuth();
@@ -82,6 +85,12 @@ const Profile = () => {
         >
           {changeDetails ? "Done" : "Change"}
         </p>
+
+        <Link to="/create-listing" className="createListing">
+          <img src={homeIcon} alt="home" />
+          <p>Sell or Rent your home</p>
+          <img src={arrowRight} alt="arrowRight" />
+        </Link>
       </main>
     </div>
   );
