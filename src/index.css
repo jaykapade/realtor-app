@@ -600,10 +600,12 @@ button {
 }
 
 .messageDiv {
-  margin-top: 2rem;
+  margin-top: 0.5rem;
   display: flex;
   flex-direction: column;
-  margin-bottom: 4rem;
+  justify-content: center;
+  /* align-items: center; */
+  margin-bottom: 1rem;
 }
 
 .messageLabel {
