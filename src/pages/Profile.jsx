@@ -67,6 +67,8 @@ const Profile = () => {
     }
   };
 
+  const onEdit = (listingId) => navigate(`/edit-listing/${listingId}`);
+
   const onLogout = () => {
     auth.signOut();
     navigate("/");
@@ -148,6 +150,7 @@ const Profile = () => {
                   listing={listing.data}
                   id={listing.id}
                   onDelete={() => onDelete(listing.id)}
+                  onEdit={() => onEdit(listing.id)}
                 />
               ))}
             </ul>
