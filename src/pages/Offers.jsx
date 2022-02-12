@@ -11,7 +11,7 @@ import {
 import { db } from "../firebase.config";
 import { toast } from "react-toastify";
 import Spinner from "../components/Spinner";
-import { useParams } from "react-router-dom";
+
 import ListingItem from "../components/ListingItem";
 
 const Offers = () => {

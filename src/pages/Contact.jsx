@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams, useSearchParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase.config";
 import { toast } from "react-toastify";
@@ -7,9 +7,10 @@ import { toast } from "react-toastify";
 const Contact = () => {
   const [message, setMessage] = useState("");
   const [landlord, setLandlord] = useState(null);
+  // eslint-disable-next-line no-unused-vars
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const params = useParams();
 
   useEffect(() => {

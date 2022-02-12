@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from "swiper";
@@ -18,7 +18,7 @@ const Listing = () => {
   const [loading, setLoading] = useState(true);
   const [sharedLinkCopied, setSharedLinkCopied] = useState(false);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const params = useParams();
   const auth = getAuth();
 
@@ -27,7 +27,7 @@ const Listing = () => {
       const docRef = doc(db, "listings", params.listingId);
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
-        console.log(docSnap.data());
+        // console.log(docSnap.data());
         setListing(docSnap.data());
         setLoading(false);
       }

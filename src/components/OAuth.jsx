@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { doc, setDoc, getDoc, serverTimestamp } from "firebase/firestore";
@@ -9,7 +9,7 @@ import googleIcon from "../assets/svg/googleIcon.svg";
 
 const OAuth = () => {
   const navigate = useNavigate();
-  const location = useLocation();
+  // const location = useLocation();
 
   const onGoogleClick = async () => {
     try {

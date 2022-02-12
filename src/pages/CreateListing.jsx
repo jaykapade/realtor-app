@@ -14,7 +14,7 @@ import { v4 as uuidv4 } from "uuid";
 import Spinner from "../components/Spinner";
 
 const CreateListing = () => {
-  const [geolocationEnabled, setGeolocationEnabled] = useState(false);
+  const geolocationEnabled = false;
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     type: "rent",
